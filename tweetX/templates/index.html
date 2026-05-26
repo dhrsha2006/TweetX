@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}TweetX{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">Welcome to TweetX!</h1>
+    <a href="{% url 'tweet_create' %}" class="btn btn-success mb-3">+ New Tweet</a>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for tweet in tweets %}
+            <div class="col">
+                <div class="card bg-secondary text-light h-100">
+                    {% if tweet.photo %}
+                        <img src="{{ tweet.photo.url }}" class="card-img-top" alt="tweet image" style="height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h6 class="card-title"><strong>{{ tweet.user }}</strong></h6>
+                        <p class="card-text">{{ tweet.text }}</p>
+                        {% if tweet.user == request.user %}
+                            <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger btn-sm">Delete</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center">No tweets yet! Create one above.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
