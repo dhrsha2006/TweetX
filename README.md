@@ -14,8 +14,8 @@ TweetX is a lightweight, responsive microblogging web platform built to let user
 ## 🛠️ Tech Stack
 
 * **Frontend:** HTML5, CSS3 (Custom styling, Flexbox/Grid)
-* **Backend Framework:** *(e.g., Python/Django or Node.js)*
-* **Database:** *(e.g., SQLite or PostgreSQL)*
+* **Backend Framework:**  Python/Django
+* **Database:** SQLite 
 
 ---
 
